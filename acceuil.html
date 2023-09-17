@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Open Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fff;
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .modal-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Title</h1>
+    <p>Subtitle</p>
+    <button class="button" id="openLinkButton">Open Link</button>
+
+    <!-- Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <p>Do you want to open the link in the current tab or a new tab?</p>
+            <button class="modal-button" id="currentTabButton">Current Tab</button>
+            <button class="modal-button" id="newTabButton">New Tab</button>
+            <button class="modal-button" id="cancelButton">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        const openLinkButton = document.getElementById('openLinkButton');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const currentTabButton = document.getElementById('currentTabButton');
+        const newTabButton = document.getElementById('newTabButton');
+        const cancelButton = document.getElementById('cancelButton');
+
+        openLinkButton.addEventListener('click', () => {
+            confirmationModal.style.display = 'block';
+        });
+
+        currentTabButton.addEventListener('click', () => {
+            // Replace this URL with your desired link
+            window.location.href = 'https://www.example.com';
+            confirmationModal.style.display = 'none';
+        });
+
+        newTabButton.addEventListener('click', () => {
+            // Replace this URL with your desired link
+            window.open('https://www.example.com', '_blank');
+            confirmationModal.style.display = 'none';
+        });
+
+        cancelButton.addEventListener('click', () => {
+            confirmationModal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
