@@ -3,54 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos liens et réseaux sociaux</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&display=swap">
+    <title>Site officiel ClassQuest</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            /* Removed background-color property */
+            color: #0070f3; /* iOS 16 Blue */
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .navbar-container {
+            background-color: #ffffff; /* White */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #d1d1d1; /* Light gray border */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 20px;
+        }
+
+        .navbar a {
+            color: #0070f3; /* iOS 16 Blue */
+            text-align: center;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-left: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #e1f5fe; /* Light blue background on hover */
+            color: #0070f3; /* iOS 16 Blue on hover */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 60px auto 20px; /* Adjusted margin-top and added margin-bottom */
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff; /* White */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero {
             text-align: center;
         }
+
         h1 {
-            font-size: 36px;
-            margin-top: 20px;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #333; /* Dark gray text color */
         }
+
         ul {
             list-style: none;
             padding: 0;
         }
+
         li {
             margin: 10px 0;
         }
-        .google-button {
+
+        p {
+            font-size: 1.5rem;
+            color: #666; /* Gray text color */
+        }
+
+        .button {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #4285f4;
-            color: #fff;
+            background-color: #0070f3; /* iOS 16 Blue */
+            color: #ffffff;
+            font-size: 1.5rem;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        .google-button:hover {
-            background-color: #357ae8;
+
+        .button:hover {
+            background-color: #0052cc; /* Darker blue on hover */
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff; /* White */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #888; /* Gray close button color */
         }
     </style>
 </head>
 <body>
-    <h1>Nos liens</h1>
-    <ul>
-        <li><a href="https://classquestapp.github.io/" class="google-button">Le site officiel</a></li>
-        <li><a href="https://www.bit.ly/classquest" class="google-button">L'appli (PWA)</a></li>
-        <li><a href="https://classquestapp.github.io/help.html" class="google-button">Le centre d'aide</a></li>
-    </ul>
-    <h1>Nos réseaux</h1>
-    <ul>
-        <li><a href="https://www.instagram.com/classquest.app/" class="google-button">Instagram</a></li>
-        <li><a href="https://www.tiktok.com/@classquest.app" class="google-button">Tiktok</a></li>
-        <li><a href="https://twitter.com/PClassques64480" class="google-button">X (Twitter)</a></li>
-        <li><a href="https://www.youtube.com/@classquest/" class="google-button">YouTube</a></li>
-        <li><a href="https://discord.gg/KySkKQPGab" class="google-button">Serveur Discord</a></li>
-    </ul>
+    <header class="header">
+        <div class="container">
+            <h1 style="color: #333;">Nos lien et resaux sociaux</h1> <!-- Dark gray text color -->
+            <p style="color: #666;">Rejoint-nous !</p>
+        </div>
+    </header>
+    <div class="navbar-container">
+        <div class="navbar">
+            <div class="navbar-left">
+                <p style="color: #333;">ClassQuest</p> <!-- Dark gray text color -->
+            </div>
+            <div class="navbar-right">
+                <a href="/">Accueil</a>
+                <a href="/help.html">Aide</a>
+                <a href="/links.html">Nos liens</a>
+                <a href="#" id="downloadAppButton">Télécharger l'app</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <section class="hero">
+            <h1>Nos liens</h1>
+            <ul>
+                <li><a href="https://classquestapp.github.io/" class="button">Le site officiel</a></li>
+                <a href="#" class="button" id="getStartedButton">L'appli (PWA)</a>
+                <li><a href="https://classquestapp.github.io/help.html" class="button">Le centre d'aide</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Nos réseaux</h1>
+            <ul>
+                <li><a href="https://www.instagram.com/classquest.app/" class="button">Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@classquest.app" class="button">Tiktok</a></li>
+                <li><a href="https://twitter.com/PClassques64480" class="button">X (Twitter)</a></li>
+                <li><a href="https://www.youtube.com/@classquest/" class="button">YouTube</a></li>
+                <li><a href="https://discord.gg/KySkKQPGab" class="button">Serveur Discord</a></li>
+            </ul>
+        </section>
+    </div>
+
+
+
+    <!-- Popup HTML -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="popup-close" id="popupClose">&times;</span>
+            <h2>L'appli est encore en dévloppement</h2>
+            <p>Elle sera disponible en beta vers l'été 2024</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the popup
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+
+        // Function to hide the popup
+        function hidePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        // Event listeners
+        document.getElementById("getStartedButton").addEventListener("click", function() {
+            // Check if the user is on a phone (assuming screen width <= 768px is a phone)
+            if (window.innerWidth <= 768) {
+                // Open an external link for phones
+                window.open("https://bit.ly/classquest"); // Replace with your external link
+            } else {
+                // Show the popup for computers
+                showPopup();
+            }
+        });
+
+        // Event listener for the "Télécharger l'app" button
+        document.getElementById("downloadAppButton").addEventListener("click", function() {
+            // Check if the user is on a phone (assuming screen width <= 768px is a phone)
+            if (window.innerWidth <= 768) {
+                // Open an external link for phones (same link as Installer button)
+                window.open("https://bit.ly/classquest"); // Replace with your external link
+            } else {
+                // Show the popup for computers (same popup as Installer button)
+                showPopup();
+            }
+        });
+
+        // Close the popup when the close button is clicked
+        document.getElementById("popupClose").addEventListener("click", hidePopup);
+    </script>
 </body>
 </html>
