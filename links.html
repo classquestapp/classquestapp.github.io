@@ -150,8 +150,8 @@
             </div>
             <div class="navbar-right">
                 <a href="/">Accueil</a>
-                <a href="/help.html">Aide</a>
-                <a href="/links.html">Nos liens</a>
+                <a href="/help">Aide</a>
+                <a href="/links">Nos liens</a>
                 <a href="#" id="downloadAppButton">Télécharger l'app</a>
             </div>
         </div>
@@ -205,26 +205,15 @@
         // Event listeners
         document.getElementById("getStartedButton").addEventListener("click", function() {
             // Check if the user is on a phone (assuming screen width <= 768px is a phone)
-            if (window.innerWidth <= 768) {
-                // Open an external link for phones
-                window.open("https://bit.ly/classquest"); // Replace with your external link
-            } else {
-                // Show the popup for computers
-                showPopup();
+            showPopup();
             }
-        });
+        );
 
         // Event listener for the "Télécharger l'app" button
         document.getElementById("downloadAppButton").addEventListener("click", function() {
-            // Check if the user is on a phone (assuming screen width <= 768px is a phone)
-            if (window.innerWidth <= 768) {
-                // Open an external link for phones (same link as Installer button)
-                window.open("https://bit.ly/classquest"); // Replace with your external link
-            } else {
-                // Show the popup for computers (same popup as Installer button)
-                showPopup();
+            showPopup();
             }
-        });
+        );
 
         // Close the popup when the close button is clicked
         document.getElementById("popupClose").addEventListener("click", hidePopup);
